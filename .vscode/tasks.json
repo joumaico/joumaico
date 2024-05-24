@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Tailwind CSS",
+      "type": "shell",
+      "command": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch --minify",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
