@@ -1,0 +1,263 @@
+@import url('https://fonts.cdnfonts.com/css/merriweather-2');
+@import url('https://fonts.cdnfonts.com/css/questrial');
+
+a {
+    color: #ae2222;
+}
+
+a:hover {
+    color: #c22626;
+}
+
+a.nav-link {
+    text-decoration-style: double;
+}
+
+address.imprint__address {
+    float: left;
+    font-style: normal;
+}
+
+address.imprint__address code {
+    background: #313131;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 10px;
+    user-select: all;
+}
+
+address.imprint__address p {
+    margin: 0;
+}
+
+body {
+    font: 17px 'Merriweather', sans-serif;
+    user-select: none;
+    color: #232323;
+}
+
+div.clear-both {
+    clear: both;
+}
+
+div.container {
+    margin: 48px auto;
+    max-width: 880px;
+    padding: 0 40px;
+}
+
+div.float-left {
+    float: left;
+}
+
+div.float-right {
+    float: right;
+}
+
+div.imprint__contact {
+    float: right;
+}
+
+div.imprint__contact p {
+    margin: 0;
+}
+
+div.project__description p {
+    font-size: 15px;
+}
+
+div.projects__list {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+div.stacks__categories {
+    display: grid;
+    font-size: 16px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+}
+
+div.stacks__categories h3 {
+    margin-top: 5px;
+}
+
+div.stacks__categories ul {
+    line-height: 1.8;
+    padding-left: 30px;
+}
+
+div.stacks__category.database {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+div.stacks__category.devops {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+div.stacks__category.frameworks {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+div.stacks__category.languages {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+footer.footer {
+    margin-top: 25px;
+    text-align: right;
+}
+
+footer.footer span {
+    color: #595959;
+}
+
+h1 {
+    font-family: 'Questrial', sans-serif;
+}
+
+h2.project__name {
+    margin-top: 0;
+}
+
+h2.project__name a {
+    border-bottom: 3px solid #c71b1b;
+    font-size: 18px;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+header.header {
+    float: left;
+}
+
+li.navigation__item {
+    display: inline;
+    margin: 0 3px;
+    padding: 0;
+}
+
+main.main-content {
+    padding: 30px 0;
+}
+
+nav.navigation {
+    float: right;
+}
+
+p {
+    line-height: 1.7;
+}
+
+p.project__short {
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+section.section {
+    border-bottom: 1px solid #e7e7e7;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+section.section.billboard {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+section.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+section.section.romanizer {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+section.section.sql {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+ul.navigation__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 640px) {
+    address.imprint__address {
+        float: none;
+        margin-bottom: 10px;
+    }
+
+    body {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    div.container {
+        padding: 0 20px;
+    }
+
+    div.imprint p {
+        font-size: 15px;
+    }
+
+    div.imprint__contact {
+        float: none;
+    }
+
+    div.projects__list {
+        display: block;
+    }
+
+    footer.footer {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    footer.footer span {
+        font-size: 15px;
+    }
+
+    h2.project__name a {
+        font-size: 20px;
+    }
+
+    header.header {
+        float: none;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    nav.navigation {
+        float: none;
+        text-align: center;
+    }
+
+    p.project__short {
+        font-size: 16px;
+    }
+
+    section.section.projects {
+        padding-bottom: 10px;
+    }
+
+    section.section.projects h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    div.stacks__categories {
+        display: block;
+    }
+}

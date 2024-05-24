@@ -1,0 +1,19 @@
+services:
+
+  www:
+    container_name: www
+    build: ./www
+    ports:
+      - "8000:8000"
+    command: gunicorn --workers 4 --bind :8000 app:app
+    restart: always
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    depends_on:
+      - www

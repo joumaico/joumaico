@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{about.first_name}} {{about.last_name}}</title>
+    <link rel="icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="/" class="nav-link">{{about.first_name}} {{about.last_name}}</a>
+        </header>
+        <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item">
+                    <a href="" class="nav-link" data-target="about">about</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="" class="nav-link" data-target="projects">projects</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="" class="nav-link" data-target="stacks">stacks</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="clear-both"></div>
+        <main class="main-content">
+            <section class="section about" id="about">
+                <h1 class="section__title">About Me</h1>
+                <div class="about__content">{{about.content|safe}}</div>
+                <div class="imprint">
+                    <h4>Imprint and contact information:</h4>
+                    <address class="imprint__address">
+                        <p>{{about.first_name}} {{about.middle_name + "."}} {{about.last_name}}</p>
+                        <p>{{about.address}}</p>
+                        {% for link in links if link.id == "email" %}
+                        <p>{{link.name}}: <a href="mailto:{{link.url}}">{{link.url}}</a></p>
+                        {% endfor %}
+                        <p>
+                            <span>NBI Clearance:</span>
+                            <code>{{about.nbi}}</code>
+                        </p>
+                    </address>
+                    <div class="imprint__contact">
+                        {% for link in links if link.id != "email" %}
+                        <p>{{link.name}}: <a href="{{link.url}}" target="_blank">{{link.url[8:]}}</a></p>
+                        {% endfor %}
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </section>
+
+            <section class="section projects" id="projects">
+                <h1 class="section__title">Open Source Projects</h1>
+                <div class="projects__list">
+                    {% for project in projects %}
+                    <div class="project">
+                        <h2 class="project__name">
+                            <a href="{{project.url}}" target="_blank">{{project.title}}&ensp;</a>
+                        </h2>
+                        <p class="project__short">‣ {{project.short}}</p>
+                        <div class="project__description">
+                            <p>{{project.description}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="section stacks" id="stacks">
+                <h1 class="section__title">Technical Stacks</h1>
+                <div class="stacks__categories">
+                    {% for tag in tags %}
+                    <div class="stacks__category {{tag.key}}">
+                        <h3 class="stacks__title">{{tag.value}}</h3>
+                        <ul class="stacks__list">
+                            {% for skill in stacks %}
+                            {% if skill.tag == tag.key %}
+                            <li class="stacks__item">
+                                <a href="{{skill.url}}" target="_blank">{{skill.name}}</a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <span>&copy; Copyright {{about.year}} by {{about.first_name}} {{about.last_name}}.</span>
+        </footer>
+    </div>
+    <script src="/static/js/index.js"></script>
+</body>
+
+</html>

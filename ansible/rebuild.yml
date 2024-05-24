@@ -1,0 +1,19 @@
+- name: Stop and Remove Docker Containers and Images
+  hosts: servers
+  tasks:
+    - name: Stop and Remove Docker Containers and Images
+      shell: |
+        cd /home/ubuntu/joumaico/
+        sudo docker compose down
+        sudo docker rmi joumaico-nginx:latest
+        sudo docker rmi joumaico-www:latest
+        sudo docker builder prune -f
+
+- name: Remove joumaico Directory
+  hosts: servers
+  tasks:
+    - name: Remove joumaico Directory
+      shell: |
+        sudo rm -rf /home/ubuntu/joumaico/
+
+- import_playbook: build.yml

@@ -1,0 +1,28 @@
+- name: Clone Git Repository
+  hosts: servers
+  tasks:
+    - name: Clone Git Repository
+      shell: |
+        cd /home/ubuntu/
+        git clone https://github.com/joumaico/joumaico.git
+
+- name: Synchronize Nginx Configuration
+  hosts: servers
+  tasks:
+    - name: Remove Placeholder of Nginx Configuration
+      shell: |
+        sudo rm -rf /home/ubuntu/joumaico/nginx/www.joumaico.com
+    - name: Synchronize Nginx Configuration
+      synchronize:
+        src: ./nginx/
+        dest: /home/ubuntu/joumaico/nginx/
+        rsync_opts:
+          - "--chmod=755"
+
+- name: Start Docker Compose
+  hosts: servers
+  tasks:
+    - name: Start Docker Compose
+      shell: |
+        cd /home/ubuntu/joumaico/
+        sudo docker compose up --build -d
